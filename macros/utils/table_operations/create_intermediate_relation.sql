@@ -37,3 +37,15 @@
         type='table') %}
     {% do return(tmp_relation) %}
 {% endmacro %}
+
+
+{# CCCS #}
+{% macro spark__edr_make_intermediate_relation(base_relation) %}
+    {% set tmp_identifier = elementary.table_name_with_suffix(base_relation.identifier, elementary.get_timestamped_table_suffix()) %}
+    {% set tmp_relation = api.Relation.create(
+        identifier=tmp_identifier,
+        schema=base_relation.schema,
+        database=base_relation.database,
+        type='table') %}
+    {% do return(tmp_relation) %}
+{% endmacro %}

@@ -9,3 +9,8 @@
 {% macro default__get_default_table_type() %}
   {% do return(none) %}
 {% endmacro %}
+
+{# CCCS #}
+{%- macro spark__get_default_table_type() %}
+  {% do return("iceberg") %}
+{% endmacro %}
